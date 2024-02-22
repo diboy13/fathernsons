@@ -119,7 +119,7 @@ header.navbar-container .search-form label {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background-image: url(/image/hero.jpg);
+  background-image: url(../image/hero.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -180,10 +180,11 @@ header.navbar-container .search-form label {
 
 .about .about-container-2 {
   display: flex;
-  gap: 2rem;
+  /* gap: 0.2rem; */
   margin-top: 2rem;
   justify-content: center;
   align-items: center;
+  margin-left: 1.5rem;
 }
 
 .about .about-container-1 .about-img {
@@ -200,7 +201,7 @@ header.navbar-container .search-form label {
 }
 
 .about .about-container-2 .about-img img {
-  width: 350px;
+  width: 600px;
 }
 
 .about .about-container-1 .content,
@@ -211,8 +212,13 @@ header.navbar-container .search-form label {
 
 .about .about-container-1 .content h3,
 .about .about-container-2 .content h3 {
-  font-size: 400;
+  font-size: 2rem;
   padding: 1rem 0;
+}
+
+.about .about-container-1 .content p,
+.about .about-container-2 .content p {
+  font-size: 1.3rem;
 }
 
 /* our product */
@@ -408,6 +414,11 @@ footer .links li {
   list-style-type: none;
 }
 
+footer .links li a {
+  color: black;
+  font-size: 1.5rem;
+}
+
 footer .links li a:hover {
   padding: 0.5rem 1rem;
   border-radius: 999px;
@@ -437,11 +448,15 @@ footer .links li a:hover {
 /* tablet */
 @media (max-width: 750px) {
   html {
-    font-size: 60%;
+    font-size: 95%;
+  }
+
+  main {
+    min-width: 750px;
   }
 
   .hero {
-    min-width: 600px;
+    min-width: 750px;
   }
 
   #hamburger-menu {
@@ -484,12 +499,14 @@ footer .links li a:hover {
   }
 
   .about .about-container-2 .about-img img {
-    min-width: 500px;
-    margin-right: 5.5rem;
+    min-width: 400px;
+    margin-right: 0rem;
+    padding-left: 1.5rem;
   }
 
   .about .about-container-2 {
     display: block;
+    margin-left: 0.1rem;
   }
 
   .contact .isi {
@@ -506,15 +523,40 @@ footer .links li a:hover {
     flex: 1 1 45rem;
     object-fit: cover;
   }
+
+  footer {
+    min-width: 750px;
+  }
+
+  footer li a {
+    font-size: 2rem;
+  }
 }
 
 /* handphone */
 @media (max-width: 470px) {
   html {
-    font-size: 50%;
+    font-size: 90%;
   }
 
   header.navbar-container {
-    height: 8rem;
+    height: 7rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 3rem 1rem 3rem;
+  }
+
+  header.navbar-container .logo {
+    font-size: 1.7rem;
+    color: black;
+  }
+
+  footer li a {
+    font-size: 2.5rem;
+  }
+
+  main aside .social-media li a {
+    font-size: 2rem;
+    padding: 1rem;
   }
 }
