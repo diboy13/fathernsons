@@ -280,12 +280,12 @@ header.navbar-container .search-form label {
   font-size: 1rem;
 }
 
-.contact .isi .map {
+.contact .isi .image {
   width: 100%;
   margin: 0;
   padding: 0;
   flex: 1 1 45rem;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .contact .isi form {
@@ -309,6 +309,7 @@ header.navbar-container .search-form label {
 .contact .isi form .input-cust label {
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 100%;
 }
 
@@ -333,19 +334,19 @@ header.navbar-container .search-form label {
 
 /* aside social media */
 
-main aside {
+main aside.left {
   position: fixed;
   inset-block: 0;
   inset-block-end: 0;
   z-index: 99999;
 }
 
-main aside .social-media {
+main aside.left .social-media {
   display: flex;
   height: 100%;
 }
 
-main aside .social-media ul {
+main aside.left .social-media ul {
   padding: 1.5rem 1rem;
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
@@ -358,11 +359,11 @@ main aside .social-media ul {
   gap: 1.5rem;
 }
 
-main aside .social-media li {
+main aside.left .social-media li {
   list-style-type: none;
 }
 
-main aside .social-media li a {
+main aside.left .social-media li a {
   font-size: 2rem;
   transition: 0.2s ease-in-out;
   display: flex;
@@ -374,19 +375,19 @@ main aside .social-media li a {
   color: black;
 }
 
-main aside .social-media li a#youtube:hover {
+main aside.left .social-media li a#youtube:hover {
   color: #ff0000;
 }
 
-main aside .social-media li a#instagram:hover {
+main aside.left .social-media li a#instagram:hover {
   background: linear-gradient(115deg, #f9ce34, #ee2a7b, #6228d7);
 }
 
-main aside .social-media li a#twitter:hover {
+main aside.left .social-media li a#twitter:hover {
   color: #1da1f2;
 }
 
-main aside .social-media li a#facebook:hover {
+main aside.left .social-media li a#facebook:hover {
   color: #4267b2;
 }
 
@@ -442,6 +443,12 @@ footer .links li a:hover {
 @media (max-width: 1366px) {
   html {
     font-size: 85%;
+  }
+
+  .contact .isi {
+    display: block;
+    margin-top: 2rem;
+    background-color: #dadadad8;
   }
 }
 
@@ -515,7 +522,7 @@ footer .links li a:hover {
     background-color: #dadadad8;
   }
 
-  .contact .isi .map {
+  .contact .isi .image {
     width: 100%;
     height: 400px;
     margin: 0;
