@@ -131,7 +131,7 @@ header.navbar-container .search-form label {
 
 .hero .content {
   position: fixed;
-  padding: 2rem 6%;
+  padding: 2rem 15%;
   text-align: center;
   top: 100px;
 }
@@ -270,14 +270,6 @@ header.navbar-container .search-form label {
   display: flex;
   margin-top: 2rem;
   background-color: #dadadad8;
-}
-
-.contact p {
-  text-align: center;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  font-weight: 400;
-  font-size: 1rem;
 }
 
 .contact .isi .image {
