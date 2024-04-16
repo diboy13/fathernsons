@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,13 +9,20 @@
     <script src="https://unpkg.com/feather-icons"></script>
 
     <!-- my own css -->
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="src/output.css" />
 
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
       rel="stylesheet"
     />
 
@@ -27,79 +34,149 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-  </head>
-  <body>
-    <header class="navbar-container">
-      <div class="logo">
-        <a href="#" class="navbar-logo">FATHER&SON'S</a>
-      </div>
-      <nav class="navbar-content">
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#products">Our Product</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-      <nav class="navbar-search">
-        <div class="navbar-extra">
-          <a href="#" id="search-button"
-            ><i data-feather="search" class="search-menu" id="search-menu"></i
-          ></a>
-          <a href="#"
-            ><i
-              data-feather="menu"
-              class="hamburger-menu"
-              id="hamburger-menu"
-            ></i
-          ></a>
-        </div>
 
-        <!-- search form start -->
-        <div class="search-form">
-          <input
-            type="search"
-            id="search-box"
-            placeholder="kamu mau cari apa...."
-          />
-          <label for="search-box"><i data-feather="search"></i></label>
+    <!-- Swiper.js -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  </head>
+  <body class="font-inter">
+    <!-- navbar section start -->
+    <header
+      class="absolute top-0 left-0 z-10 flex w-full items-center bg-transparent"
+    >
+      <div class="container">
+        <div class="relative flex items-center justify-between">
+          <div class="px-4">
+            <a href="#home" class="block py-6 text-2xl font-bold text-primary"
+              >Fathernson's</a
+            >
+          </div>
+          <div class="flex items-center px-4">
+            <button
+              id="hamburger"
+              name="hamburger"
+              type="button"
+              class="absolute right-4 block lg:hidden"
+            >
+              <span
+                class="hamburger-line origin-top-left transition duration-300 ease-in-out"
+              ></span>
+              <span
+                class="hamburger-line transition duration-300 ease-in-out"
+              ></span>
+              <span
+                class="hamburger-line origin-bottom-left transition duration-300 ease-in-out"
+              ></span>
+            </button>
+
+            <nav
+              id="nav-menu"
+              class="absolute right-4 top-full hidden w-full max-w-[250px] rounded-lg bg-white py-5 shadow-lg dark:bg-dark dark:shadow-slate-500 lg:static lg:block lg:max-w-full lg:rounded-none lg:bg-transparent lg:shadow-none lg:dark:bg-transparent"
+            >
+              <ul class="block lg:flex">
+                <li class="group">
+                  <a
+                    href="#home"
+                    class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white"
+                    >Beranda</a
+                  >
+                </li>
+                <li class="group">
+                  <a
+                    href="#about"
+                    class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white"
+                    >About Us</a
+                  >
+                </li>
+                <li class="group">
+                  <a
+                    href="#products"
+                    class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white"
+                    >Our Product</a
+                  >
+                </li>
+                <li class="group">
+                  <a
+                    href="#contact"
+                    class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white"
+                    >Contact Us</a
+                  >
+                </li>
+                <li class="mt-3 flex items-center pl-8 lg:mt-0">
+                  <div class="flex">
+                    <span class="mr-2 text-sm text-slate-500">light</span>
+                    <input type="checkbox" class="hidden" id="dark-toggle" />
+                    <label for="dark-toggle">
+                      <div
+                        class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1"
+                      >
+                        <div
+                          class="toggle-circle h-4 w-4 rounded-full bg-white transition duration-300 ease-in-out"
+                        ></div>
+                      </div>
+                    </label>
+                    <span class="ml-2 text-sm text-slate-500">dark</span>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
-        <!-- search form end -->
-      </nav>
+      </div>
     </header>
+    <!-- navbar section end -->
 
     <main>
       <!-- hero section start -->
-      <section class="hero" id="home">
-        <article>
-          <div class="content">
-            <h1>Dapatkan mobil bekas yang berkelas</h1>
-            <p>
-              Tidak selamanya mobil bekas itu jelek, bahkan mobil bekas bisa
-              menjadi solusi bagi anda yang belum bisa membeli mobil baru
-            </p>
+      <section id="home" class="pt-20">
+        <div class="w-full">
+          <div
+            class="-z-10 bg-[url('/image/hero.jpg')] bg-cover bg-center flex justify-center h-[54.5rem] relative"
+          >
+            <div class="mx-4 py-20 max-w-[30rem] top-36">
+              <h1 class="text-center text-3xl font-bold text-primary">
+                Dapatkan mobil bekas yang berkelas
+              </h1>
+              <p class="text-lg text-dark">
+                Tidak selamanya mobil bekas itu jelek, bahkan mobil bekas bisa
+                menjadi solusi bagi anda yang belum bisa membeli mobil baru.
+              </p>
+            </div>
           </div>
-        </article>
+        </div>
       </section>
       <!-- hero section end -->
 
       <!-- about section start -->
-      <section class="about" id="about">
-        <article>
-          <h2>About Us</h2>
-          <div class="about-container-1">
-            <div class="about-img">
-              <img src="image/about-us.jpg" alt="fns" />
+      <section class="pt-20" id="about">
+        <article class="">
+          <h2 class="text-center font-bold text-primary text-2xl mb-5">
+            About Us
+          </h2>
+          <div
+            class="container flex flex-wrap justify-center items-center md:w-4/5 lg:flex-nowrap lg:gap-2"
+          >
+            <div class="rounded-full lg:w-2/6 xl:w-1/6">
+              <img
+                src="image/about-us.jpg"
+                alt="fns"
+                class="rounded-full lg:w-full lg:bottom-3"
+              />
             </div>
-            <div class="content">
-              <h3>Kenapa Memilih kami</h3>
-              <p>
+            <div class="lg:w-4/6 xl:w-5/6">
+              <h3 class="font-bold text-lg text-primary mb-3">
+                Kenapa Memilih kami
+              </h3>
+              <p class="text-secondary mb-2">
                 Kami dipercaya oleh banyak orang ketika akan mencari mobil
                 bekas. Tak heran semua pelanggan kami puas akan performa dari
                 toko kami, karena harganya terjangkau, barang berkualitas dan
                 tentunya kece barangnya.
               </p>
-              <p>
+              <p class="text-secondary mb-2">
                 Tidak usah ragu lagi ketika anda ingin membeli di toko kami,
                 sudah banyak pelanggan yang puas ketika membeli di toko kami.
                 Selama ini kami tidak pernah menerima komplain dari orang
@@ -108,13 +185,21 @@
               </p>
             </div>
           </div>
-          <div class="about-container-2">
-            <div class="about-img">
-              <img src="image/bengkel-pilihan.jpeg" alt="Bengkel Pilihan" />
+          <div
+            class="container flex flex-wrap justify-center items-center md:w-4/5 lg:flex-nowrap lg:flex-row-reverse lg:gap-2 mt-6"
+          >
+            <div class="lg:w-2/6 xl:w-2/6">
+              <img
+                src="image/bengkel-pilihan.jpeg"
+                alt="bengkel pilihan"
+                class="w-full"
+              />
             </div>
-            <div class="content">
-              <h3>Service mobil di bengkel pilihan yang terbaik</h3>
-              <p>
+            <div class="lg:w-4/6 xl:w-4/6 h-full">
+              <h3 class="font-bold text-lg text-primary mb-3">
+                Service mobil di bengkel pilihan yang terbaik
+              </h3>
+              <p class="text-secondary mb-2">
                 Untuk memenuhi kebutuhan sehari hari. Mobil kami di service di
                 bengkel yang berkualitas yang sudah terjamin. Tak jarang orang
                 takut akan mobil bekas karena barang lama, tetapi tidak setelah
@@ -131,20 +216,26 @@
       <!-- about section end -->
 
       <!-- our product start -->
-      <section class="products" id="products">
-        <h2>Our Product</h2>
-        <div class="isi">
-          <div class="product">
-            <div>
-              <img
-                src="image/produk-1/1-1.jpg"
-                alt="alphard"
-                class="product-img"
-              />
-            </div>
-            <div class="description">
-              <h3 class="produk-title">Alphard X CBU 2014</h3>
-              <pre class="product-specification">
+      <section class="pt-20" id="products">
+        <h2 class="text-center font-bold text-primary text-2xl mb-5">
+          Our Product
+        </h2>
+        <div class="flex flex-wrap justify-center mx-auto">
+          <!-- product 1 -->
+          <div class="w-full px-4 lg:w-1/2">
+            <div
+              class="mb-10 overflow-hidden container rounded-md shadow-lg bg-slate-100 px-0"
+            >
+              <div>
+                <img
+                  src="image/produk-1/1-1.jpg"
+                  alt="alphard"
+                  class="w-full mb-6"
+                />
+              </div>
+              <div class="description">
+                <h3 class="text-xl mb-4 font-bold">Alphard X CBU 2014</h3>
+                <pre class="text-secondary">
              Year: 2014
 Mileage: 86.XXX(Rawatan bengkel resmi)
 Full paper, pajak hidup
@@ -159,23 +250,31 @@ Full paper, pajak hidup
 • Siap pakai mudik
                     
 Garansi bebas accident & banjir
-              </pre>
-              <p class="product-price">
-                Rp. 289.000.000 <span>(negotiable)</span>
-              </p>
+              </pre
+                >
+                <p class="product-price">
+                  Rp. 289.000.000
+                  <span class="text-red-600">(negotiable)</span>
+                </p>
+              </div>
             </div>
           </div>
-          <div class="product">
-            <div>
-              <img
-                src="image/produk-2/2-1.jpg"
-                alt="splash"
-                class="product-img"
-              />
-            </div>
-            <div class="description">
-              <h3 class="produk-title">Suzuki Splash AT</h3>
-              <pre class="product-specification">
+
+          <!-- product 2 -->
+          <div class="w-full px-4 lg:w-1/2">
+            <div
+              class="mb-10 overflow-hidden container rounded-md shadow-lg bg-slate-100 px-0"
+            >
+              <div>
+                <img
+                  src="image/produk-2/2-1.jpg"
+                  alt="splash"
+                  class="w-full mb-6"
+                />
+              </div>
+              <div class="description">
+                <h3 class="text-xl mb-4 font-bold">Suzuki Splash AT</h3>
+                <pre class="text-secondary">
               Year: 2015
 Mileage: 23rb km (asli, service record)
 Full Paper, pajak panjang
@@ -189,23 +288,30 @@ Full Paper, pajak panjang
 • service record bengel resmi lengkap
 
 Garansi bebas accident & banjir
-              </pre>
-              <p class="product-price">
-                Rp. 289.000.000 <span>(negotiable)</span>
-              </p>
+              </pre
+                >
+                <p class="product-price">
+                  Rp. 289.000.000 <span class="text-red-600">(negotiable)</span>
+                </p>
+              </div>
             </div>
           </div>
-          <div class="product">
-            <div>
-              <img
-                src="image/produk-3/3-1.jpg"
-                alt="x-trail"
-                class="product-img"
-              />
-            </div>
-            <div class="description">
-              <h3 class="produk-title">X-Trail 2.0</h3>
-              <pre class="product-specification">
+
+          <!-- product 3 -->
+          <div class="w-full px-4 lg:w-1/2">
+            <div
+              class="mb-10 overflow-hidden container rounded-md shadow-lg bg-slate-100 px-0"
+            >
+              <div>
+                <img
+                  src="image/produk-3/3-1.jpg"
+                  alt="x-trail"
+                  class="pw-full mb-6"
+                />
+              </div>
+              <div class="description">
+                <h3 class="text-xl mb-4 font-bold">X-Trail 2.0</h3>
+                <pre class="text-secondary">
              Year: 2017
 Mileage: 93.xxx km
 Full Paper, pajak panjang
@@ -221,81 +327,211 @@ Full Paper, pajak panjang
 • service record bengel resmi lengkap
 
 Garansi bebas accident & banjir
-              </pre>
-              <p class="product-price">
-                Rp. 289.000.000 <span>(negotiable)</span>
-              </p>
+              </pre
+                >
+                <p class="product-price">
+                  Rp. 289.000.000 <span class="text-red-600">(negotiable)</span>
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
       <!-- our product end -->
+
       <!-- contact us start -->
-      <aside class="contact" id="contact">
-        <h2>Contact Us</h2>
-        <div class="isi">
-          <img src="image/contact.jpg" alt="contact" class="image" />
-          <form action="">
-            <div class="input-cust">
-              <label for="name" id="name">
-                <i data-feather="user"></i>
-                <input type="text" placeholder="Your Name" />
-              </label>
+      <aside class="pt-20 mb-9" id="contact">
+        <h2 class="text-center font-bold text-primary text-2xl mb-2">
+          Contact Us
+        </h2>
+
+        <form>
+          <div class="w-full lg:mx-auto lg:h-1/2 lg:w-2/3 mx-auto">
+            <div class="m-3">
+              <label for="name" class="text-base font-bold text-primary"
+                >Nama:</label
+              >
+              <input
+                type="text"
+                id="name"
+                class="w-full rounded-md bg-slate-200 p-3 text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+              />
             </div>
-            <div class="input-cust">
-              <label for="email" id="email">
-                <i data-feather="at-sign"></i>
-                <input type="email" placeholder="Your email" />
-              </label>
+            <div class="m-3">
+              <label for="email" class="text-base font-bold text-primary"
+                >Email:</label
+              >
+              <input
+                type="email"
+                id="email"
+                class="w-full rounded-md bg-slate-200 p-3 text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+              />
             </div>
-            <div class="input-cust">
-              <label for="phone" id="phone">
-                <i data-feather="phone"></i>
-                <input type="number" placeholder="Your Phone" />
-              </label>
+            <div class="m-3">
+              <label for="message" class="text-base font-bold text-primary"
+                >Pesan:</label
+              >
+              <textarea
+                name="message"
+                id=""
+                cols="30"
+                rows="6"
+                class="w-full rounded-md bg-slate-200 p-3 text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+              ></textarea>
             </div>
-            <button type="submit" class="btn">Kirim Pesan</button>
-          </form>
-        </div>
+            <div class="w-full px-4">
+              <button
+                class="w-full rounded-full py-3 px-8 text-base font-bold text-dark bg-primary hover:bg-yellow-400 duration-300 ease-in-out"
+              >
+                Kirim
+              </button>
+            </div>
+          </div>
+        </form>
       </aside>
 
       <!-- contact us end -->
-
-      <!-- aside social media start -->
-      <aside class="left">
-        <div class="social-media">
-          <ul>
-            <li>
-              <a href="#" id="youtube"><i class="fab fa-youtube"></i></a>
-            </li>
-            <li>
-              <a href="#" id="instagram"><i class="fab fa-instagram"></i></a>
-            </li>
-            <li>
-              <a href="#" id="twitter"><i class="fab fa-twitter"></i></a>
-            </li>
-            <li>
-              <a href="#" id="facebook"><i class="fab fa-facebook"></i></a>
-            </li>
-          </ul>
-        </div>
-      </aside>
-      <!-- aside social media end -->
     </main>
 
-    <footer>
-      <div class="links">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Our Product</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
+    <footer class="bg-dark pt-24 pb-5">
+      <div class="container">
+        <div class="flex flex-wrap">
+          <div class="mb-12 w-full font-medium text-slate-300 md:w-1/2">
+            <h3 class="text-4xl font-bold mb-4 text-white">Fathernsons</h3>
+            <h4 class="text-2xl font-bold mb-4 text-white">Hubungi Kami</h4>
+            <p>Bari Akhdan</p>
+            <p>Jl Taman Malaka Sari No. 10</p>
+            <p>Jakarta Timur</p>
+          </div>
+          <div class="w-full font-medium text-slate-300 md:w-1/2 md:mt-14">
+            <h3 class="text-2xl font-bold mb-4 text-white">Tautan</h3>
+            <ul class="ml-2">
+              <li>
+                <a
+                  href="#home"
+                  class="mb-3 inline-block text-base hover:text-primary"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  class="mb-3 inline-block text-base hover:text-primary"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#products"
+                  class="mb-3 inline-block text-base hover:text-primary"
+                  >Our Product</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  class="mb-3 inline-block text-base hover:text-primary"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="w-full border-t border-slate-700 mt-5">
+            <div class="flex justify-center items-center p-5">
+              <!-- instagram -->
+              <a
+                href="https://www.instagram.com/fnsdealership"
+                target="_blank"
+                class="p-1 mr-3 flex w-10 items-center justify-center rounded-full border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-dark"
+                ><svg
+                  role="img"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="fill-current"
+                >
+                  <title>Instagram</title>
+                  <path
+                    d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"
+                  />
+                </svg>
+              </a>
+
+              <!-- youtube -->
+              <a
+                href="https://www.youtube.com/@fnsauto"
+                target="_blank"
+                class="p-1 mr-3 flex w-10 items-center justify-center rounded-full border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-dark"
+                ><svg
+                  role="img"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="fill-current"
+                >
+                  <title>YouTube</title>
+                  <path
+                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                  />
+                </svg>
+              </a>
+
+              <!-- whatsapp -->
+              <a
+                href="https://api.whatsapp.com/send/?phone=6285942381835&text=Halo+admin+fns+car+dealership%2C+saya+tertarik+dengan+mobilnya&type=phone_number&app_absent=0"
+                target="_blank"
+                class="p-1 mr-3 flex w-10 items-center justify-center rounded-full border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-dark"
+                ><svg
+                  viewBox="0 0 360 362"
+                  class="fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M307.546 52.5655C273.709 18.685 228.706 0.0171895 180.756 0C81.951 0 1.53846 80.404 1.50408 179.235C1.48689 210.829 9.74646 241.667 25.4319 268.844L0 361.736L95.0236 336.811C121.203 351.096 150.683 358.616 180.679 358.625H180.756C279.544 358.625 359.966 278.212 360 179.381C360.017 131.483 341.392 86.4547 307.546 52.5741V52.5655ZM180.756 328.354H180.696C153.966 328.346 127.744 321.16 104.865 307.589L99.4242 304.358L43.034 319.149L58.0834 264.168L54.5423 258.53C39.6304 234.809 31.749 207.391 31.7662 179.244C31.8006 97.1036 98.6334 30.2707 180.817 30.2707C220.61 30.2879 258.015 45.8015 286.145 73.9665C314.276 102.123 329.755 139.562 329.738 179.364C329.703 261.513 262.871 328.346 180.756 328.346V328.354ZM262.475 216.777C257.997 214.534 235.978 203.704 231.869 202.209C227.761 200.713 224.779 199.966 221.796 204.452C218.814 208.939 210.228 219.029 207.615 222.011C205.002 225.002 202.389 225.372 197.911 223.128C193.434 220.885 179.003 216.158 161.891 200.902C148.578 189.024 139.587 174.362 136.975 169.875C134.362 165.389 136.7 162.965 138.934 160.739C140.945 158.728 143.412 155.505 145.655 152.892C147.899 150.279 148.638 148.406 150.133 145.423C151.629 142.432 150.881 139.82 149.764 137.576C148.646 135.333 139.691 113.287 135.952 104.323C132.316 95.5909 128.621 96.777 125.879 96.6309C123.266 96.5019 120.284 96.4762 117.293 96.4762C114.302 96.4762 109.454 97.5935 105.346 102.08C101.238 106.566 89.6691 117.404 89.6691 139.441C89.6691 161.478 105.716 182.785 107.959 185.776C110.202 188.767 139.544 234.001 184.469 253.408C195.153 258.023 203.498 260.782 210.004 262.845C220.731 266.257 230.494 265.776 238.212 264.624C246.816 263.335 264.71 253.786 268.44 243.326C272.17 232.866 272.17 223.893 271.053 222.028C269.936 220.163 266.945 219.037 262.467 216.794L262.475 216.777Z"
+                  />
+                </svg>
+              </a>
+
+              <!-- tiktok -->
+              <a
+                href="https://www.tiktok.com/@fnsdealership"
+                target="_blank"
+                class="p-1 mr-3 flex w-10 items-center justify-center rounded-full border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-dark"
+                ><svg
+                  role="img"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="fill-current"
+                >
+                  <title>TikTok</title>
+                  <path
+                    d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="credit">
-        <p>&copy; Property of Fanther & Son's</p>
+      <div>
+        <p class="text-center text-slate-500 font-medium">
+          &copy; Property of Fanther & Son's
+        </p>
       </div>
     </footer>
+
+    <!-- Back to top Start -->
+    <a
+      href="#home"
+      class="fixed bottom-4 right-4 z-[9999] hidden h-14 w-14 items-center justify-center rounded-full bg-primary p-4 animate-bounce"
+      id="to-top"
+    >
+      <span
+        class="mt-2 block h-5 w-5 rotate-45 border-t-2 border-l-2 border-dark"
+      ></span>
+    </a>
+    <!-- Back to top End -->
 
     <!-- feather icons -->
     <script>

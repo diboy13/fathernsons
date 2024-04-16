@@ -1,31 +1,34 @@
-//toggle kelas active
-const navbarContent = document.querySelector(".navbar-content");
-const searchForm = document.querySelector(".search-form");
+// Navbar Fixed
+window.onscroll = function () {
+  const header = document.querySelector("header");
+  const fixedNav = header.offsetTop;
+  const toTop = document.querySelector("#to-top");
 
-// ketika humberger menu di click
-document.querySelector("#hamburger-menu").onclick = () => {
-  navbarContent.classList.toggle("active");
+  if (window.pageYOffset > fixedNav) {
+    header.classList.add("navbar-fixed");
+    toTop.classList.remove("hidden");
+    toTop.classList.add("flex");
+  } else {
+    header.classList.remove("navbar-fixed");
+    toTop.classList.remove("flex");
+    toTop.classList.add("hidden");
+  }
 };
 
-// click di luar sidebar untuk menghilangkan navbar
-const hamburger = document.querySelector("#hamburger-menu");
+// hamburger
+const hamburger = document.querySelector("#hamburger");
+const navMenu = document.querySelector("#nav-menu");
 
-document.addEventListener("click", function (e) {
-  if (!hamburger.contains(e.target) && !navbarContent.contains(e.target)) {
-    navbarContent.classList.remove("active");
-  }
+hamburger.addEventListener("click", function () {
+  hamburger.classList.toggle("hamburger-active");
+  navMenu.classList.toggle("hidden");
 });
 
-// ketika tombol search di klik
-document.querySelector("#search-button").onclick = () => {
-  searchForm.classList.toggle("active");
-};
+// klik di luar hamburger
 
-// click di luar search form untuk menghilangkan searchform
-const search = document.querySelector("#search-menu");
-
-document.addEventListener("click", function (e) {
-  if (!search.contains(e.target) && !searchForm.contains(e.target)) {
-    searchForm.classList.remove("active");
+window.addEventListener("click", function (e) {
+  if (e.target != hamburger && e.target != navMenu) {
+    hamburger.classList.remove("hamburger-active");
+    navMenu.classList.add("hidden");
   }
 });
