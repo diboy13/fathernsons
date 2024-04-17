@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Father & Son's</title>
 
-    <!-- feather icon -->
-    <script src="https://unpkg.com/feather-icons"></script>
-
     <!-- my own css -->
     <link rel="stylesheet" href="src/output.css" />
 
@@ -25,34 +22,29 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
       rel="stylesheet"
     />
-
-    <!-- font awesome 5.15.4 -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-
-    <!-- Swiper.js -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
-    />
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
   </head>
   <body class="font-inter">
     <!-- navbar section start -->
     <header
-      class="absolute top-0 left-0 z-10 flex w-full items-center bg-transparent"
+      class="absolute top-0 left-0 z-10 flex w-full items-center bg-transparent dark:bg-opacity-80 dark:bg-dark"
     >
       <div class="container">
-        <div class="relative flex items-center justify-between">
-          <div class="px-4">
-            <a href="#home" class="block py-6 text-2xl font-bold text-primary"
-              >Fathernson's</a
-            >
+        <div class="relative flex items-center justify-between py-4 lg:py-0.5">
+          <div
+            class="px-6 rounded-full bg-primary w-52 h-12 flex justify-center items-center dark:bg-dark text-dark dark:text-primary"
+          >
+            <a href="#home" class="block text-2xl font-bold">Fathernson's</a>
           </div>
           <div class="flex items-center px-4">
             <button
@@ -76,7 +68,7 @@
               id="nav-menu"
               class="absolute right-4 top-full hidden w-full max-w-[250px] rounded-lg bg-white py-5 shadow-lg dark:bg-dark dark:shadow-slate-500 lg:static lg:block lg:max-w-full lg:rounded-none lg:bg-transparent lg:shadow-none lg:dark:bg-transparent"
             >
-              <ul class="block lg:flex">
+              <ul class="block lg:flex" id="nav-ul">
                 <li class="group">
                   <a
                     href="#home"
@@ -105,20 +97,25 @@
                     >Contact Us</a
                   >
                 </li>
-                <li class="mt-3 flex items-center pl-8 lg:mt-0">
+                <li class="mt-3 flex items-center pl-8 lg:mt-0" id="dark-tog1">
                   <div class="flex">
-                    <span class="mr-2 text-sm text-slate-500">light</span>
+                    <span
+                      class="mr-2 text-sm dark:text-slate-200 hidden"
+                      id="light"
+                      >Light</span
+                    >
                     <input type="checkbox" class="hidden" id="dark-toggle" />
                     <label for="dark-toggle">
                       <div
-                        class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1"
+                        class="flex h-6 w-10 cursor-pointer items-center rounded-full bg-slate-500 p-1"
+                        id="dark-tog"
                       >
                         <div
-                          class="toggle-circle h-4 w-4 rounded-full bg-white transition duration-300 ease-in-out"
+                          class="toggle-circle h-5 w-5 rounded-full bg-white transition duration-300 ease-in-out"
                         ></div>
                       </div>
                     </label>
-                    <span class="ml-2 text-sm text-slate-500">dark</span>
+                    <span class="ml-2 text-sm text-dark" id="dark">Dark</span>
                   </div>
                 </li>
               </ul>
@@ -131,16 +128,16 @@
 
     <main>
       <!-- hero section start -->
-      <section id="home" class="pt-20">
+      <section id="home" class="pt-20 mask-light">
         <div class="w-full">
           <div
-            class="-z-10 bg-[url('/image/hero.jpg')] bg-cover bg-center flex justify-center h-[54.5rem] relative"
+            class="-z-10 min-h-[100vh] bg-[url('../image/hero.jpg')] bg-cover bg-center flex justify-center h-[54.5rem] relative"
           >
-            <div class="mx-4 py-20 max-w-[30rem] top-36">
+            <div class="mx-4 py-20 max-w-[30rem] mt-28 fixed">
               <h1 class="text-center text-3xl font-bold text-primary">
                 Dapatkan mobil bekas yang berkelas
               </h1>
-              <p class="text-lg text-dark">
+              <p class="text-lg text-dark font-medium">
                 Tidak selamanya mobil bekas itu jelek, bahkan mobil bekas bisa
                 menjadi solusi bagi anda yang belum bisa membeli mobil baru.
               </p>
@@ -151,9 +148,9 @@
       <!-- hero section end -->
 
       <!-- about section start -->
-      <section class="pt-20" id="about">
+      <section class="pt-20 pb-3 dark:bg-slate-800" id="about">
         <article class="">
-          <h2 class="text-center font-bold text-primary text-2xl mb-5">
+          <h2 class="text-center font-bold text-primary text-4xl mb-10">
             About Us
           </h2>
           <div
@@ -167,16 +164,20 @@
               />
             </div>
             <div class="lg:w-4/6 xl:w-5/6">
-              <h3 class="font-bold text-lg text-primary mb-3">
+              <h3 class="font-bold text-lg text-dark mb-3 mt-5">
                 Kenapa Memilih kami
               </h3>
-              <p class="text-secondary mb-2">
+              <p
+                class="text-secondary font-extralight mb-2 dark:text-slate-200"
+              >
                 Kami dipercaya oleh banyak orang ketika akan mencari mobil
                 bekas. Tak heran semua pelanggan kami puas akan performa dari
                 toko kami, karena harganya terjangkau, barang berkualitas dan
                 tentunya kece barangnya.
               </p>
-              <p class="text-secondary mb-2">
+              <p
+                class="text-secondary font-extralight mb-2 dark:text-slate-200"
+              >
                 Tidak usah ragu lagi ketika anda ingin membeli di toko kami,
                 sudah banyak pelanggan yang puas ketika membeli di toko kami.
                 Selama ini kami tidak pernah menerima komplain dari orang
@@ -196,10 +197,12 @@
               />
             </div>
             <div class="lg:w-4/6 xl:w-4/6 h-full">
-              <h3 class="font-bold text-lg text-primary mb-3">
+              <h3 class="font-bold text-lg text-dark mb-3 mt-5">
                 Service mobil di bengkel pilihan yang terbaik
               </h3>
-              <p class="text-secondary mb-2">
+              <p
+                class="text-secondary font-extralight mb-2 dark:text-slate-200"
+              >
                 Untuk memenuhi kebutuhan sehari hari. Mobil kami di service di
                 bengkel yang berkualitas yang sudah terjamin. Tak jarang orang
                 takut akan mobil bekas karena barang lama, tetapi tidak setelah
@@ -216,13 +219,15 @@
       <!-- about section end -->
 
       <!-- our product start -->
-      <section class="pt-20" id="products">
-        <h2 class="text-center font-bold text-primary text-2xl mb-5">
+      <section class="pt-20 dark:bg-slate-800" id="products">
+        <h2 class="text-center font-bold text-primary text-4xl mb-10">
           Our Product
         </h2>
-        <div class="flex flex-wrap justify-center mx-auto">
+        <div class="flex flex-wrap justify-center mx-auto lg:w-4/5">
           <!-- product 1 -->
-          <div class="w-full px-4 lg:w-1/2">
+          <div
+            class="w-full px-4 sm:max-w-[80%] md:max-w-[90] lg:max-w-[50%] hover:scale-105 duration-200 ease-in-out"
+          >
             <div
               class="mb-10 overflow-hidden container rounded-md shadow-lg bg-slate-100 px-0"
             >
@@ -234,8 +239,11 @@
                 />
               </div>
               <div class="description">
-                <h3 class="text-xl mb-4 font-bold">Alphard X CBU 2014</h3>
-                <pre class="text-secondary">
+                <h3 class="text-xl mb-4 font-bold text-center">
+                  Alphard X CBU 2014
+                </h3>
+                <div class="flex justify-center mx-0">
+                  <pre class="text-secondary">
              Year: 2014
 Mileage: 86.XXX(Rawatan bengkel resmi)
 Full paper, pajak hidup
@@ -251,7 +259,8 @@ Full paper, pajak hidup
                     
 Garansi bebas accident & banjir
               </pre
-                >
+                  >
+                </div>
                 <p class="product-price">
                   Rp. 289.000.000
                   <span class="text-red-600">(negotiable)</span>
@@ -261,7 +270,9 @@ Garansi bebas accident & banjir
           </div>
 
           <!-- product 2 -->
-          <div class="w-full px-4 lg:w-1/2">
+          <div
+            class="w-full px-4 lg:max-w-[50%] sm:max-w-[80%] md:max-w-[90] hover:scale-105 duration-200 ease-in-out"
+          >
             <div
               class="mb-10 overflow-hidden container rounded-md shadow-lg bg-slate-100 px-0"
             >
@@ -273,23 +284,29 @@ Garansi bebas accident & banjir
                 />
               </div>
               <div class="description">
-                <h3 class="text-xl mb-4 font-bold">Suzuki Splash AT</h3>
-                <pre class="text-secondary">
+                <h3 class="text-xl mb-4 font-bold text-center">
+                  Suzuki Splash AT
+                </h3>
+                <div class="flex justify-center mx-0">
+                  <pre class="text-secondary">
               Year: 2015
 Mileage: 23rb km (asli, service record)
 Full Paper, pajak panjang
 
-• kaya masih baru, gaada mines sama sekali
+• kaya masih baru, gaada mines
+  sama sekali
 • mesin halus, matic responsif
 • kaki-kaki empuk
-• body mulus tanpa baret atau penyok kaya baru
+• body mulus tanpa baret atau
+  penyok kaya baru
 • headunit touch screen pioneer
 • AC dingin menggigil
 • service record bengel resmi lengkap
 
 Garansi bebas accident & banjir
               </pre
-                >
+                  >
+                </div>
                 <p class="product-price">
                   Rp. 289.000.000 <span class="text-red-600">(negotiable)</span>
                 </p>
@@ -298,7 +315,9 @@ Garansi bebas accident & banjir
           </div>
 
           <!-- product 3 -->
-          <div class="w-full px-4 lg:w-1/2">
+          <div
+            class="w-full px-4 lg:max-w-[50%] sm:max-w-[80%] md:max-w-[90] hover:scale-105 duration-200 ease-in-out"
+          >
             <div
               class="mb-10 overflow-hidden container rounded-md shadow-lg bg-slate-100 px-0"
             >
@@ -310,8 +329,9 @@ Garansi bebas accident & banjir
                 />
               </div>
               <div class="description">
-                <h3 class="text-xl mb-4 font-bold">X-Trail 2.0</h3>
-                <pre class="text-secondary">
+                <h3 class="text-xl mb-4 font-bold text-center">X-Trail 2.0</h3>
+                <div class="flex justify-center mx-0">
+                  <pre class="text-secondary">
              Year: 2017
 Mileage: 93.xxx km
 Full Paper, pajak panjang
@@ -328,7 +348,8 @@ Full Paper, pajak panjang
 
 Garansi bebas accident & banjir
               </pre
-                >
+                  >
+                </div>
                 <p class="product-price">
                   Rp. 289.000.000 <span class="text-red-600">(negotiable)</span>
                 </p>
@@ -340,15 +361,20 @@ Garansi bebas accident & banjir
       <!-- our product end -->
 
       <!-- contact us start -->
-      <aside class="pt-20 mb-9" id="contact">
-        <h2 class="text-center font-bold text-primary text-2xl mb-2">
+      <section
+        class="pt-20 bg-slate-800 dark:bg-slate-300 min-h-[80vh]"
+        id="contact"
+      >
+        <h2 class="text-center font-bold text-primary text-4xl mb-10">
           Contact Us
         </h2>
 
         <form>
           <div class="w-full lg:mx-auto lg:h-1/2 lg:w-2/3 mx-auto">
             <div class="m-3">
-              <label for="name" class="text-base font-bold text-primary"
+              <label
+                for="name"
+                class="text-lg font-bold text-primary dark:text-dark"
                 >Nama:</label
               >
               <input
@@ -358,7 +384,9 @@ Garansi bebas accident & banjir
               />
             </div>
             <div class="m-3">
-              <label for="email" class="text-base font-bold text-primary"
+              <label
+                for="email"
+                class="text-lg font-bold text-primary dark:text-dark"
                 >Email:</label
               >
               <input
@@ -368,7 +396,9 @@ Garansi bebas accident & banjir
               />
             </div>
             <div class="m-3">
-              <label for="message" class="text-base font-bold text-primary"
+              <label
+                for="message"
+                class="text-lg font-bold text-primary dark:text-dark"
                 >Pesan:</label
               >
               <textarea
@@ -388,7 +418,7 @@ Garansi bebas accident & banjir
             </div>
           </div>
         </form>
-      </aside>
+      </section>
 
       <!-- contact us end -->
     </main>
@@ -400,6 +430,14 @@ Garansi bebas accident & banjir
             <h3 class="text-4xl font-bold mb-4 text-white">Fathernsons</h3>
             <h4 class="text-2xl font-bold mb-4 text-white">Hubungi Kami</h4>
             <p>Bari Akhdan</p>
+            <p>
+              <a
+                href="https://api.whatsapp.com/send/?phone=6285942381835&text=Halo+admin+fns+car+dealership%2C+saya+tertarik+dengan+mobilnya&type=phone_number&app_absent=0"
+                target="_blank"
+                class="hover:text-primary"
+                >+6285942381835</a
+              >
+            </p>
             <p>Jl Taman Malaka Sari No. 10</p>
             <p>Jakarta Timur</p>
           </div>
@@ -533,10 +571,6 @@ Garansi bebas accident & banjir
     </a>
     <!-- Back to top End -->
 
-    <!-- feather icons -->
-    <script>
-      feather.replace();
-    </script>
     <script src="javascript/script.js"></script>
   </body>
 </html>
